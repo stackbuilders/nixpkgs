@@ -1,0 +1,22 @@
+on: push
+
+concurrency:
+  group: semantic-release-${{ github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-15-large
+          - macos-latest
+          - ubuntu-latest
+          - ubuntu-latest-arm64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - run: nix run .#semantic-release  -- --version
+
