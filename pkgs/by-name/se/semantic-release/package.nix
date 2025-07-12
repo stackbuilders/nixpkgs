@@ -23,7 +23,7 @@ buildNpmPackage rec {
   dontNpmBuild = true;
 
   nativeBuildInputs = [
-    python3
+    (python3.withPackages (ps: [ ps.setuptools ]))
   ] ++ lib.optional stdenv.hostPlatform.isDarwin cctools;
 
   # Fixes `semantic-release --version` output
