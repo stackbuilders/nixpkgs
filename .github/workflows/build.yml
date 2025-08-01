@@ -31,8 +31,7 @@ jobs:
             desc: shell, docs, lib, tarball
           - runner: ubuntu-24.04-arm
             system: aarch64-linux
-            # builds: [shell, manual-nixos, manual-nixpkgs, manual-nixpkgs-tests]
-            builds: [shell, manual-nixpkgs, manual-nixpkgs-tests]
+            builds: [shell, manual-nixos, manual-nixpkgs, manual-nixpkgs-tests]
             desc: shell, docs
           - runner: macos-13
             system: x86_64-darwin
