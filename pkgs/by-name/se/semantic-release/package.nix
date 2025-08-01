@@ -24,7 +24,6 @@ buildNpmPackage rec {
 
   nativeBuildInputs = [
     python3
-    # (python3.withPackages (ps: [ ps.setuptools ]))
   ]
   ++ lib.optional stdenv.hostPlatform.isDarwin cctools;
 
@@ -40,6 +39,9 @@ buildNpmPackage rec {
     mainProgram = "semantic-release";
     homepage = "https://semantic-release.gitbook.io/semantic-release/";
     license = lib.licenses.mit;
-    maintainers = [ lib.maintainers.sestrella ];
+    maintainers = [
+      lib.maintainers.sestrella
+      lib.maintainers.fm7-1
+    ];
   };
 }
